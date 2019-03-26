@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  website:
+    build: ./website
+    container_name: almundo-website
+    command: npm run start:docker
+    ports:
+      - '4200:4200'
+    volumes:
+      - './website/:/usr/src/website'
+      - /usr/src/website/node_modules/
+    depends_on:
+      - hotels
+      - database
+  hotels:
+    build: ./services/hotels
+    container_name: almundo-hotels-service
+    command: npm run start:docker
+    ports:
+      - '5000:5000'
+    volumes:
+      - './services/hotels/:/usr/src/hotels'
+      - /usr/src/hotels/node_modules/
+  database:
+    image: mariadb
+    restart: always
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=almundo

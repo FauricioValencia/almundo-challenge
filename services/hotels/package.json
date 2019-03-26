@@ -1,0 +1,26 @@
+{
+  "name": "almundo-hotels",
+  "version": "1.0.0",
+  "description": "almundo hotels service",
+  "main": "index.js",
+  "scripts": {
+    "start:docker": "nodemon index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "almundo",
+    "api"
+  ],
+  "author": "JotaUribe",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jest": "^24.5.0",
+    "sequelize": "^5.2.0"
+  }
+}
