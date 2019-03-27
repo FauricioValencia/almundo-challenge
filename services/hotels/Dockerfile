@@ -1,6 +1,6 @@
 FROM node:10.15.1
 
-WORKDIR /usr/src/integration
+WORKDIR /usr/src/hotels
 
 COPY package.json .
 
