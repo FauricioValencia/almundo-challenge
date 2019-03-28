@@ -1,0 +1,9 @@
+@import 'src/styles/variables';
+
+.rating-star {
+  padding-left: 14px;
+  margin-right: 0.25em;
+  background-color: $color-daisy-yellow;
+  mask: url(/assets/icons/filters/star.svg) no-repeat center;
+  -webkit-mask: url(/assets/icons/filters/star.svg) no-repeat center;
+}
