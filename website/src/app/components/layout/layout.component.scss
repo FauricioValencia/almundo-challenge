@@ -1,0 +1,20 @@
+:host {
+  .header {
+    height: auto;
+    width: 100%;
+  }
+
+  .main-container {
+    margin-top: 80px;
+    height: calc(100% - 80px);
+    padding: 24px;
+
+    .sidebar {
+      width: 300px;
+    }
+
+    .main {
+      width: 100%;
+    }
+  }
+}
