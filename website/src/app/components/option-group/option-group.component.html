@@ -1,0 +1,25 @@
+<div class="am-option-group">
+  <form class="am-option-group__form">
+    <div
+      *ngFor="let opt of options"
+      class="am-option-group__option"
+      (click)="onOptionClicked(opt)"
+    >
+      <input
+        #input
+        [checked]="opt.checked"
+        class="am-option-group__option__checkbox"
+        type="checkbox"
+      />
+      <label class="am-option-group__option__label">
+        <am-rating-stars
+          *ngIf="opt.rating"
+          [rating]="opt.rating"
+        ></am-rating-stars>
+        <span *ngIf="opt.label" class="am-option-group__option__label__text">{{
+          opt.label
+        }}</span>
+      </label>
+    </div>
+  </form>
+</div>

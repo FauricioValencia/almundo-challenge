@@ -1,0 +1,137 @@
+@import 'src/styles/variables';
+
+.am-hotel {
+  display: flex;
+  font-size: 18px;
+  padding: 8px;
+  background: $color-bright-white;
+  margin-bottom: $margin-default;
+  height: 220px;
+
+  @media screen and (max-width: 1149px) {
+    flex-direction: column;
+    height: auto;
+  }
+
+  &__img-container {
+    flex-shrink: 0;
+    overflow: hidden;
+    width: 340px;
+    height: 100%;
+
+    @media screen and (max-width: 1149px) {
+      flex-direction: column;
+      height: auto;
+      max-height: 250px;
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+
+      @media screen and (max-width: 1149px) {
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  &__info {
+    flex-grow: 1;
+    display: flex;
+    margin-left: 24px;
+
+    @media screen and (max-width: 1149px) {
+      flex-direction: column;
+      height: auto;
+      margin-left: 0;
+    }
+  }
+
+  &__description {
+    @media screen and (max-width: 1149px) {
+      padding: 16px;
+    }
+
+    &__name {
+      margin: 0;
+      color: $color-sky-blue;
+      font-size: 18px;
+      margin-bottom: 8px;
+
+      @media screen and (max-width: 1149px) {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  &__price-details {
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 190px;
+
+    @media screen and (max-width: 1149px) {
+      flex-direction: column;
+      height: auto;
+    }
+
+    &-container {
+      display: flex;
+      margin-left: auto;
+
+      @media screen and (max-width: 1149px) {
+        margin-right: auto;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        &::before {
+          content: '';
+          width: 100%;
+          height: 0;
+          border-top: 1px dashed #ccc;
+        }
+      }
+
+      @media screen and (min-width: 1150px) {
+        &::before {
+          content: '';
+          height: 100%;
+          border-left: 1px dashed #ccc;
+        }
+      }
+    }
+
+    &__label {
+      max-width: 130px;
+      font-size: 12px;
+
+      &__text {
+        font-size: 12px;
+        word-wrap: break-word;
+      }
+    }
+
+    .hotel-price {
+      color: $color-coral-orange;
+      font-size: 24px;
+      vertical-align: middle;
+      margin-top: 8px;
+      margin-bottom: 8px;
+
+      .ammount {
+        display: inline-block;
+        font-weight: bold;
+        transform-origin: center center;
+        font-size: 32px;
+      }
+    }
+  }
+}

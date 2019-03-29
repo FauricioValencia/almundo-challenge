@@ -1,0 +1,35 @@
+<div class="am-hotel">
+  <div class="am-hotel__img-container">
+    <img src="{{ _image }}" class="hotel-image" />
+  </div>
+  <div class="am-hotel__info">
+    <div class="am-hotel__description">
+      <h4 class="am-hotel__description__name">{{ name }}</h4>
+      <am-rating-stars [rating]="numberOfStars" size="medium"></am-rating-stars>
+      <div class="am-hotel__amenities">
+        <am-amenities [amenities]="amenities"></am-amenities>
+      </div>
+    </div>
+    <div class="am-hotel__price-details-container">
+      <div class="am-hotel__price-details">
+        <p class="am-hotel__price-details__label">
+          <span class="am-hotel__price-details__label__text">
+            Precio por noche por habitacion
+          </span>
+        </p>
+        <div class="hotel-price">
+          <span class="currency">ARS </span>
+          <span class="ammount">{{ price }}</span>
+        </div>
+        <am-button
+          type="button"
+          class="btn btn-primary seeHotelBtn"
+          large="true"
+          accent="true"
+        >
+          Ver hotel
+        </am-button>
+      </div>
+    </div>
+  </div>
+</div>

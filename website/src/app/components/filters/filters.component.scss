@@ -1,0 +1,83 @@
+@import 'src/styles/variables';
+
+.am-filters-section {
+  background-color: $color-bright-white;
+
+  margin-bottom: 5px;
+
+  .am-filters-header {
+    padding: 13px;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0.6;
+
+    .caret {
+      display: none;
+    }
+
+    @media screen and (max-width: 1149px) {
+      text-align: center;
+
+      .caret {
+        content: ' ';
+        display: inline-block;
+        height: 0px;
+        margin-top: 4px;
+        border-top: 7px solid currentColor;
+        border-right: 7px solid transparent;
+        border-left: 7px solid transparent;
+        vertical-align: middle;
+        margin-left: auto;
+        transform: translateY(-2px);
+        transition: transform 0.2s ease-out;
+      }
+    }
+  }
+
+  .am-filter {
+    &__header {
+      color: $color-sky-blue;
+
+      &__star-icon {
+        padding-left: 16px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        line-height: 16px;
+        vertical-align: center;
+        margin-right: 14px;
+        background-color: $color-sky-blue;
+        mask: url(/assets/icons/filters/star.svg) no-repeat center;
+        -webkit-mask: url(/assets/icons/filters/star.svg) no-repeat center;
+      }
+
+      &__search-icon {
+        padding-left: 16px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        line-height: 16px;
+        vertical-align: center;
+        margin-right: 14px;
+        background-color: $color-sky-blue;
+        mask: url(/assets/icons/filters/search.svg) no-repeat center;
+        -webkit-mask: url(/assets/icons/filters/search.svg) no-repeat center;
+      }
+    }
+
+    &__field {
+      margin-left: 24px;
+      margin-right: 24px;
+      margin-bottom: 16px;
+      display: flex;
+
+      .hotel-name-input {
+        margin-right: 18px;
+        width: 180px;
+        flex-grow: 1;
+      }
+    }
+  }
+}

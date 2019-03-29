@@ -1,0 +1,29 @@
+@import 'src/styles/variables';
+
+.am-button {
+  border-radius: 3px;
+  box-sizing: border-box;
+  line-height: 20px;
+  height: 36px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &--accent {
+    background-color: $color-dark-blue;
+    color: $color-bright-white;
+    border: 0;
+    padding: 8px;
+    font-size: 18px;
+  }
+
+  &--large {
+    font-size: 18px;
+    font-weight: bold;
+    border: 0;
+    padding: 16px 40px 16px 40px;
+    height: auto;
+  }
+}

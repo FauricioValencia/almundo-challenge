@@ -1,0 +1,56 @@
+@import 'src/styles/variables';
+
+:host {
+  font-family: $font-almundo;
+  font-size: 14px;
+
+  .am-option-group {
+    min-width: 200px;
+    padding: 24px;
+    padding-bottom: 14px;
+    padding-top: 14px;
+    background: $color-bright-white;
+
+    &__header {
+      margin-bottom: 24px;
+
+      &__icon {
+        padding-left: 16px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        line-height: 16px;
+        vertical-align: center;
+        margin-right: 14px;
+        background-color: $color-sky-blue;
+        mask: url(/assets/icons/filters/star.svg) no-repeat center;
+        -webkit-mask: url(/assets/icons/filters/star.svg) no-repeat center;
+      }
+
+      &__title {
+        color: $color-sky-blue;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+
+    &__option {
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+
+      &__checkbox {
+        height: 14px;
+        width: 14px;
+        margin: 0;
+        margin-right: 14px;
+      }
+
+      &__label {
+        &__text {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

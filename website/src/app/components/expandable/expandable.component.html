@@ -1,0 +1,26 @@
+<div class="am-expandable">
+  <input
+    #toggleInput
+    id="am-expandable__toggle"
+    class="am-expandable__toggle"
+    type="checkbox"
+    [checked]="checked"
+  />
+
+  <label
+    for="am-expandable-toggle"
+    [ngClass]="{
+      'am-expandable__toggle-label': true,
+      'am-expandable__toggle-label--with-caret': noCaret
+    }"
+    (click)="toggle($event)"
+  >
+    <ng-content select="[expandable-header]" class="label"></ng-content>
+  </label>
+
+  <div class="am-expandable__content">
+    <div class="content-inner">
+      <ng-content select="[expandable-content]"></ng-content>
+    </div>
+  </div>
+</div>

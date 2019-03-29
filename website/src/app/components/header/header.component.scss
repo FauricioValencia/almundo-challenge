@@ -1,0 +1,14 @@
+@import 'src/styles/variables';
+
+.am-header {
+  height: 80px;
+  background-color: $color-dark-blue;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  &__brand {
+    color: white;
+  }
+}

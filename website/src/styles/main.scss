@@ -1,0 +1,10 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,700');
+@import '/amenities.scss';
+
+html,
+body {
+  margin: 0;
+  background: $color-dirty-white;
+  font-family: $font-almundo;
+}
