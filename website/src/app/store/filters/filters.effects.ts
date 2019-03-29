@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Effect, Actions, ofType } from '@ngrx/effects';
 import { map, switchMap, catchError } from 'rxjs/operators';
-import * as ConstitutionActions from './filters.actions';
 import { HotelListActions } from '../hotel-list';
 import { of } from 'rxjs';
+import * as FiltersActions from './filters.actions';
 
 @Injectable()
 export class FiltersEffects {
   @Effect()
   searchHotels = this.actions.pipe(
-    ofType(ConstitutionActions.Types.ApplyFilters),
-    map(data => {
-      return new HotelListActions.SearchHotels(data);
+    ofType(FiltersActions.Types.ApplyFilters),
+    map((action: FiltersActions.ApplyFiltersDone) => {
+      return new HotelListActions.SearchHotels(action.payload);
     })
   );
 

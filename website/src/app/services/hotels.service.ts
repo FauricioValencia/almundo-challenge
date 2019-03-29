@@ -9,17 +9,23 @@ import { Injectable } from '@angular/core';
 export class HotelsService {
   constructor(private http: HttpClient) {}
 
-  fetchHotels({ stars, name }): Observable<Hotel[]> {
-    const nameFilter = name ? `name=${name}` : '';
-    const starsFilter = stars ? `&stars=${stars.join(',')}` : '';
+  fetchHotels({
+    stars,
+    name
+  }: {
+    stars: any[];
+    name: string;
+  }): Observable<Hotel[]> {
+    const query = [];
+    if (stars && !stars.includes('all')) {
+      query.push(`stars=${stars}`);
+    }
+    if (name) {
+      query.push(`name=${name}`);
+    }
 
-    const queryUrl = `http://hotels:5000/api/v2/hotels?${nameFilter}${starsFilter}`;
-
-    return this.http.get<Hotel[]>(queryUrl);
-  }
-
-  fetchAllHotels(): Observable<Hotel[]> {
-    const queryUrl = `http://hotels:5000/api/v2/hotels`;
+    // TODO: Extract URL to hotel service into a ENV variable
+    const queryUrl = `http://localhost:5000/api/v2/hotels?${query.join('&')}`;
 
     return this.http.get<Hotel[]>(queryUrl);
   }

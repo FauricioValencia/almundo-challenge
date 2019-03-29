@@ -6,7 +6,7 @@ const withNamespace = action => `${NAMESPACE} - ${action}`;
 
 // Action Types
 export const Types = {
-  SearchHotels: withNamespace('Apply Filters on Hotel List'),
+  SearchHotels: withNamespace('Search Hotels'),
   FetchHotels: withNamespace('Fetch Hotels'),
   FetchHotelsDone: withNamespace('Fetch Hotels Done'),
   FetchHotelsFailed: withNamespace('Fetch Hotels Failed')

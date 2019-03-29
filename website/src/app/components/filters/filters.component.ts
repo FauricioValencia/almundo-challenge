@@ -1,4 +1,8 @@
+import { ApplyFilters } from '@store/filters/filters.actions';
+import { CoreState } from './../../store/reducers';
+import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'am-filters',
@@ -39,7 +43,34 @@ export class FiltersComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  filtersForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private store: Store<CoreState>
+  ) {
+    this.filtersForm = formBuilder.group({
+      name: [undefined],
+      stars: [this.options]
+    });
+  }
 
   ngOnInit() {}
+
+  submit() {
+    const a = this.filtersForm.value;
+    console.log('form state', a);
+
+    const stars = this.options.filter(o => o.checked).map(o => o.value);
+
+    this.store.dispatch(new ApplyFilters({ ...a, stars }));
+  }
+
+  getStarsFilter(starOptions: [any]) {
+    const checkedStars = starOptions.filter(o => o.checked).map(o => o.value);
+    if (checkedStars.includes('all')) {
+      return ['all'];
+    }
+    return checkedStars;
+  }
 }

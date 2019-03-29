@@ -1,6 +1,10 @@
 <div class="am-option-group">
   <form class="am-option-group__form">
-    <div *ngFor="let opt of options" class="am-option-group__option">
+    <div
+      *ngFor="let opt of options"
+      class="am-option-group__option"
+      (click)="onOptionClicked(opt)"
+    >
       <input
         #input
         [checked]="opt.checked"

@@ -9,9 +9,17 @@ import { of } from 'rxjs';
 @Injectable()
 export class HotelListEffects {
   @Effect()
+  searchHotels = this.actions.pipe(
+    ofType(HotelListActions.Types.SearchHotels),
+    map((action: HotelListActions.SearchHotels) => {
+      return new HotelListActions.FetchHotels(action.payload);
+    })
+  );
+
+  @Effect()
   fetchHotels = this.actions.pipe(
     ofType(HotelListActions.Types.FetchHotels),
-    switchMap((action: HotelListActions.SearchHotels) =>
+    switchMap((action: HotelListActions.FetchHotels) =>
       this.hotelsService.fetchHotels(action.payload).pipe(
         // If successful, dispatch success action with result
         map(data => {

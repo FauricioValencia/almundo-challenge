@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-const NAMESPACE = 'SEARCH-WIDGET';
+const NAMESPACE = 'FILTERS';
 const withNamespace = action => `${NAMESPACE} - ${action}`;
 
 // Action Types

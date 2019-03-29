@@ -3,9 +3,10 @@ import {
   OnInit,
   HostBinding,
   Input,
-  ViewChild
+  ViewChild,
+  forwardRef
 } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'am-input',
@@ -18,7 +19,14 @@ import { ControlValueAccessor } from '@angular/forms';
       [type]="type"
     />
   `,
-  styleUrls: ['./input.component.scss']
+  styleUrls: ['./input.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputComponent),
+      multi: true
+    }
+  ]
 })
 export class InputComponent implements OnInit, ControlValueAccessor {
   @Input()

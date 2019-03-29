@@ -1,30 +1,37 @@
-<div class="am-filters-section">
-  <div class="am-filters-header">Filtros</div>
-</div>
-<div class="am-filters-section hote-name-filter">
-  <am-expandable>
-    <div class="am-filter__header" expandable-header>
-      <span class="am-filter__header__search-icon"></span>
-      <strong class="am-filter__header__title">Nombre de hotel</strong>
-    </div>
-    <div expandable-content class="am-filter__field">
-      <am-input
-        type="text"
-        class="hotel-name-input"
-        placeholder="Ingrese el nombre del hotel"
-      ></am-input>
-      <am-button accent="true">Aceptar</am-button>
-    </div>
-  </am-expandable>
-</div>
+<form class="am-filters" [formGroup]="filtersForm" (ngSubmit)="submit()">
+  <div class="am-filters-section">
+    <div class="am-filters-header">Filtros</div>
+  </div>
+  <div class="am-filters-section hote-name-filter">
+    <am-expandable>
+      <div class="am-filter__header" expandable-header>
+        <span class="am-filter__header__search-icon"></span>
+        <strong class="am-filter__header__title">Nombre de hotel</strong>
+      </div>
+      <div expandable-content class="am-filter__field">
+        <am-input
+          formControlName="name"
+          type="text"
+          class="hotel-name-input"
+          placeholder="Ingrese el nombre del hotel"
+        ></am-input>
+        <am-button type="submit" accent="true">Aceptar</am-button>
+      </div>
+    </am-expandable>
+  </div>
 
-<div class="am-filters-section hotel-stars-filter">
-  <am-expandable class="am-filter-container">
-    <div class="am-filter__header" expandable-header>
-      <span class="am-filter__header__star-icon"></span>
-      <strong class="am-filter__header__title">Extrellas</strong>
-    </div>
-    <am-option-group [options]="options" header="Estrellas" expandable-content>
-    </am-option-group>
-  </am-expandable>
-</div>
+  <div class="am-filters-section hotel-stars-filter">
+    <am-expandable class="am-filter-container">
+      <div class="am-filter__header" expandable-header>
+        <span class="am-filter__header__star-icon"></span>
+        <strong class="am-filter__header__title">Extrellas</strong>
+      </div>
+      <am-option-group
+        formControlName="stars"
+        header="Estrellas"
+        expandable-content
+      >
+      </am-option-group>
+    </am-expandable>
+  </div>
+</form>
