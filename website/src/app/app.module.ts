@@ -1,5 +1,7 @@
+import { CoreStoreModule } from './store/index';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +14,7 @@ import { RatingStarsComponent } from './components/rating-stars/rating-stars.com
 import { ExpandableComponent } from './components/expandable/expandable.component';
 import { ButtonComponent } from './components/button/button.component';
 import { InputComponent } from './components/input/input.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,14 @@ import { InputComponent } from './components/input/input.component';
     ButtonComponent,
     InputComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    CoreStoreModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
