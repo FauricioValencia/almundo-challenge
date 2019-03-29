@@ -6,4 +6,8 @@
   background-color: $color-daisy-yellow;
   mask: url(/assets/icons/filters/star.svg) no-repeat center;
   -webkit-mask: url(/assets/icons/filters/star.svg) no-repeat center;
+
+  &--medium {
+    padding-left: 24px;
+  }
 }

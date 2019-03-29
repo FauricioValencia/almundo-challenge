@@ -53,10 +53,19 @@
   }
 
   &__description {
+    @media screen and (max-width: 1149px) {
+      padding: 16px;
+    }
+
     &__name {
       margin: 0;
       color: $color-sky-blue;
       font-size: 18px;
+      margin-bottom: 8px;
+
+      @media screen and (max-width: 1149px) {
+        margin-bottom: 16px;
+      }
     }
   }
 

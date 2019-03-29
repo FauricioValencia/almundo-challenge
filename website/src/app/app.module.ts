@@ -19,6 +19,8 @@ import { StoreModule } from '@ngrx/store';
 import { HotelListComponent } from './components/hotel-list/hotel-list.component';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { ExpansionTriggerDirective } from './components/expansion-trigger/expansion-trigger.directive';
+import { AmenitiesComponent } from './components/amenities/amenities.component';
+import { AmenityComponent } from './components/amenity/amenity.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ExpansionTriggerDirective } from './components/expansion-trigger/expans
     ButtonComponent,
     InputComponent,
     HotelListComponent,
-    HotelComponent
+    HotelComponent,
+    AmenitiesComponent,
+    AmenityComponent
   ],
   imports: [
     BrowserModule,
