@@ -12,6 +12,10 @@
     font-size: 18px;
     font-weight: bold;
     opacity: 0.6;
+
+    @media screen and (max-width: 1149px) {
+      text-align: center;
+    }
   }
 
   .am-filter {

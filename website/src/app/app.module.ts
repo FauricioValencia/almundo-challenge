@@ -15,6 +15,8 @@ import { ExpandableComponent } from './components/expandable/expandable.componen
 import { ButtonComponent } from './components/button/button.component';
 import { InputComponent } from './components/input/input.component';
 import { StoreModule } from '@ngrx/store';
+import { HotelListComponent } from './components/hotel-list/hotel-list.component';
+import { HotelComponent } from './components/hotel/hotel.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { StoreModule } from '@ngrx/store';
     RatingStarsComponent,
     ExpandableComponent,
     ButtonComponent,
-    InputComponent
+    InputComponent,
+    HotelListComponent,
+    HotelComponent
   ],
   imports: [
     BrowserModule,

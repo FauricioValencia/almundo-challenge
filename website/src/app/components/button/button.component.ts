@@ -6,7 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
     <button
       [ngClass]="{
         'am-button': true,
-        'am-button--accent': accent
+        'am-button--accent': accent,
+        'am-button--large': large
       }"
     >
       <ng-content></ng-content>
@@ -17,6 +18,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ButtonComponent implements OnInit {
   @Input()
   accent = false;
+
+  @Input()
+  large = false;
 
   constructor() {}
 

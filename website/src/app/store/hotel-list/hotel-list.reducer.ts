@@ -11,7 +11,7 @@ export function hotelListReducer(
 ) {
   switch (action.type) {
     case Types.FetchHotelsDone:
-      return { ...state, ...action.payload };
+      return { ...state, hotels: action.payload };
     default:
       return state;
   }
