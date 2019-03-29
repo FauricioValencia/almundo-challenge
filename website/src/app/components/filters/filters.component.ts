@@ -10,7 +10,7 @@ export class FiltersComponent implements OnInit {
     {
       label: 'Todas las estrellas',
       value: 'all',
-      checked: false
+      checked: true
     },
     {
       rating: 5,

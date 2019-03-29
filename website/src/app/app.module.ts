@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { OptionGroupComponent } from './components/option-group/option-group.component';
 import { RatingStarsComponent } from './components/rating-stars/rating-stars.component';
+import { ExpandableComponent } from './components/expandable/expandable.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RatingStarsComponent } from './components/rating-stars/rating-stars.com
     HeaderComponent,
     FiltersComponent,
     OptionGroupComponent,
-    RatingStarsComponent
+    RatingStarsComponent,
+    ExpandableComponent
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

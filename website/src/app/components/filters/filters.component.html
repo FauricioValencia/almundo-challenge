@@ -1,1 +1,12 @@
-<am-option-group [options]="options" header="Estrellas"></am-option-group>
+<am-expandable #expansion>
+  <div
+    amExpansionTriggerFor="expansion"
+    class="am-filter__header"
+    expandable-header
+  >
+    <span class="am-filter__header__star-icon"></span>
+    <strong class="am-filter__header__title">Extrellas</strong>
+  </div>
+  <am-option-group [options]="options" header="Estrellas" expandable-content>
+  </am-option-group>
+</am-expandable>

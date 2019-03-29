@@ -1,15 +1,11 @@
 <div class="am-option-group">
-  <div class="am-option-group__header">
-    <span class="am-option-group__header__icon"></span>
-    <strong class="am-option-group__header__title">{{ header }}</strong>
-  </div>
   <form class="am-option-group__form">
     <div *ngFor="let opt of options" class="am-option-group__option">
       <input
         #input
+        [checked]="opt.checked"
         class="am-option-group__option__checkbox"
         type="checkbox"
-        [checked]="opt.value"
       />
       <label class="am-option-group__option__label">
         <am-rating-stars
