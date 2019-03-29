@@ -22,4 +22,12 @@ export class ExpandableComponent implements OnInit {
   toggle(event) {
     this.toggleButton.nativeElement.click();
   }
+
+  expand() {
+    this.checked = true;
+  }
+
+  collapse() {
+    this.checked = false;
+  }
 }

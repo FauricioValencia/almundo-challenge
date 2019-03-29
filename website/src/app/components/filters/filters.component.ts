@@ -1,8 +1,10 @@
+import { ExpandableComponent } from './../expandable/expandable.component';
 import { ApplyFilters } from '@store/filters/filters.actions';
 import { CoreState } from './../../store/reducers';
 import { Store } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'am-filters',
@@ -45,9 +47,13 @@ export class FiltersComponent implements OnInit {
 
   filtersForm: FormGroup;
 
+  @ViewChild('expandable')
+  expandableForm: ExpandableComponent;
+
   constructor(
     private formBuilder: FormBuilder,
-    private store: Store<CoreState>
+    private store: Store<CoreState>,
+    private breakpointObserver: BreakpointObserver
   ) {
     this.filtersForm = formBuilder.group({
       name: [undefined],
@@ -55,22 +61,27 @@ export class FiltersComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const mobile = '(max-width: 1149px)';
+    const desktop = '(min-width: 1150px)';
 
-  submit() {
-    const a = this.filtersForm.value;
-    console.log('form state', a);
+    this.breakpointObserver
+      .observe(['(max-width: 1149px)', '(min-width: 1150px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.breakpoints[mobile]) {
+          this.expandableForm.collapse();
+        }
 
-    const stars = this.options.filter(o => o.checked).map(o => o.value);
-
-    this.store.dispatch(new ApplyFilters({ ...a, stars }));
+        if (state.breakpoints[desktop]) {
+          this.expandableForm.expand();
+        }
+      });
   }
 
-  getStarsFilter(starOptions: [any]) {
-    const checkedStars = starOptions.filter(o => o.checked).map(o => o.value);
-    if (checkedStars.includes('all')) {
-      return ['all'];
-    }
-    return checkedStars;
+  submit() {
+    const values = this.filtersForm.value;
+    const stars = this.options.filter(o => o.checked).map(o => o.value);
+
+    this.store.dispatch(new ApplyFilters({ ...values, stars }));
   }
 }

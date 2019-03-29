@@ -1,13 +1,11 @@
 @import 'src/styles/variables';
 
 .am-expandable {
-  background: $color-bright-white;
-
   &__toggle {
     display: none;
 
     &:checked + .am-expandable__toggle-label + .am-expandable__content {
-      max-height: 350px;
+      max-height: 1000px;
     }
 
     &:checked + &-label::after {
@@ -25,6 +23,10 @@
       box-sizing: border-box;
       display: flex;
       align-items: center;
+
+      &:empty {
+        display: none;
+      }
 
       &--with-caret {
         &::after {
