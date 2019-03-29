@@ -2,6 +2,9 @@
   .header {
     height: auto;
     width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 10;
   }
 
   .main-container {
@@ -10,7 +13,7 @@
     padding: 24px;
 
     .sidebar {
-      width: 300px;
+      width: 350px;
     }
 
     .main {

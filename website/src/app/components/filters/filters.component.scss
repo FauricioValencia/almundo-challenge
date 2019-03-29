@@ -1,20 +1,61 @@
 @import 'src/styles/variables';
 
-.am-filter {
-  &__header {
-    color: $color-sky-blue;
+.am-filters-section {
+  background-color: $color-bright-white;
 
-    &__star-icon {
-      padding-left: 16px;
-      width: 16px;
-      height: 16px;
-      font-size: 16px;
-      line-height: 16px;
-      vertical-align: center;
-      margin-right: 14px;
-      background-color: $color-sky-blue;
-      mask: url(/assets/icons/filters/star.svg) no-repeat center;
-      -webkit-mask: url(/assets/icons/filters/star.svg) no-repeat center;
+  margin-bottom: 5px;
+
+  .am-filters-header {
+    padding: 13px;
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 0.6;
+  }
+
+  .am-filter {
+    &__header {
+      color: $color-sky-blue;
+
+      &__star-icon {
+        padding-left: 16px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        line-height: 16px;
+        vertical-align: center;
+        margin-right: 14px;
+        background-color: $color-sky-blue;
+        mask: url(/assets/icons/filters/star.svg) no-repeat center;
+        -webkit-mask: url(/assets/icons/filters/star.svg) no-repeat center;
+      }
+
+      &__search-icon {
+        padding-left: 16px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        line-height: 16px;
+        vertical-align: center;
+        margin-right: 14px;
+        background-color: $color-sky-blue;
+        mask: url(/assets/icons/filters/search.svg) no-repeat center;
+        -webkit-mask: url(/assets/icons/filters/search.svg) no-repeat center;
+      }
+    }
+
+    &__field {
+      margin-left: 24px;
+      margin-right: 24px;
+      margin-bottom: 16px;
+      display: flex;
+
+      .hotel-name-input {
+        margin-right: 18px;
+        width: 180px;
+        flex-grow: 1;
+      }
     }
   }
 }
