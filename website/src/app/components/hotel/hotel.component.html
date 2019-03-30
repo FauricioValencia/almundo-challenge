@@ -22,10 +22,12 @@
           <span class="ammount">{{ price }}</span>
         </div>
         <am-button
+          #goToHotelBtn
           type="button"
-          class="btn btn-primary seeHotelBtn"
+          class="go-to-hotel-btn"
           large="true"
           accent="true"
+          [stretch]="stretchGoToHotelBtn"
         >
           Ver hotel
         </am-button>

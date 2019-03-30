@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'am-button',
@@ -7,7 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
       [ngClass]="{
         'am-button': true,
         'am-button--accent': accent,
-        'am-button--large': large
+        'am-button--large': large,
+        'am-button--stretch': stretch
       }"
     >
       <ng-content></ng-content>
@@ -21,6 +22,10 @@ export class ButtonComponent implements OnInit {
 
   @Input()
   large = false;
+
+  @Input()
+  @HostBinding('class.stretched')
+  private stretch = false;
 
   constructor() {}
 

@@ -80,6 +80,11 @@
     @media screen and (max-width: 1149px) {
       flex-direction: column;
       height: auto;
+      width: 100%;
+
+      .go-to-hotel-btn {
+        margin-bottom: 40px;
+      }
     }
 
     &-container {
@@ -111,10 +116,14 @@
 
     &__label {
       max-width: 130px;
-      font-size: 12px;
+      font-size: 14px;
+      color: gray;
+
+      @media screen and (max-width: 1149px) {
+        max-width: 100%;
+      }
 
       &__text {
-        font-size: 12px;
         word-wrap: break-word;
       }
     }

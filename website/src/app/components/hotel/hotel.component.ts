@@ -1,4 +1,13 @@
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import {
+  Component,
+  OnInit,
+  Input,
+  HostBinding,
+  ViewChild,
+  ElementRef,
+  Renderer2
+} from '@angular/core';
 
 @Component({
   selector: 'am-hotel',
@@ -28,9 +37,32 @@ export class HotelComponent implements OnInit {
   @HostBinding('class')
   class = 'card';
 
+  @ViewChild('goToHotelBtn')
+  goToHotelButton: ElementRef;
+
+  stretchGoToHotelBtn = false;
+
   Arr = Array;
 
-  constructor() {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private renderer: Renderer2
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const mobile = '(max-width: 1149px)';
+    const desktop = '(min-width: 1150px)';
+
+    this.breakpointObserver
+      .observe(['(max-width: 1149px)', '(min-width: 1150px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.breakpoints[mobile]) {
+          this.stretchGoToHotelBtn = true;
+        }
+
+        if (state.breakpoints[desktop]) {
+          this.stretchGoToHotelBtn = false;
+        }
+      });
+  }
 }
