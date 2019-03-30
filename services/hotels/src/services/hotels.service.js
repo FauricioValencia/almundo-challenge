@@ -16,7 +16,7 @@ const find = async function findHotels(req, res) {
 
   const query = HotelModel.find();
   if (stars) query.where('stars').in(stars.split(',').map(s => parseInt(s)));
-  if (name) query.where('name').equals(name);
+  if (name) query.where('name').regex(new RegExp(name, 'ig'));
 
   const results = await query.exec();
 

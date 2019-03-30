@@ -1,5 +1,11 @@
 @import 'src/styles/variables';
 
+:host {
+  &.stretched {
+    width: 100%;
+  }
+}
+
 .am-button {
   border-radius: 3px;
   box-sizing: border-box;
@@ -24,6 +30,13 @@
     font-weight: bold;
     border: 0;
     padding: 16px 40px 16px 40px;
+    height: auto;
+  }
+
+  &--stretch {
+    border: 0;
+    padding: 16px 40px 16px 40px;
+    width: 100%;
     height: auto;
   }
 }

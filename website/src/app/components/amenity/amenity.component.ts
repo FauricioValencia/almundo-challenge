@@ -1,11 +1,19 @@
-import { Component, OnInit, Input, Renderer2, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Renderer2,
+  ElementRef,
+  ChangeDetectionStrategy
+} from '@angular/core';
 
 @Component({
   selector: 'am-amenity',
   template: `
     <span class="am-hotel-amenity"></span>
   `,
-  styleUrls: ['./amenity.component.scss']
+  styleUrls: ['./amenity.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AmenityComponent implements OnInit {
   @Input()

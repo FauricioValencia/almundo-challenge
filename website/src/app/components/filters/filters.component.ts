@@ -40,7 +40,7 @@ export class FiltersComponent implements OnInit {
     },
     {
       rating: 1,
-      value: '2',
+      value: '1',
       checked: false
     }
   ];
@@ -78,10 +78,22 @@ export class FiltersComponent implements OnInit {
       });
   }
 
-  submit() {
+  getValues() {
     const values = this.filtersForm.value;
     const stars = this.options.filter(o => o.checked).map(o => o.value);
 
-    this.store.dispatch(new ApplyFilters({ ...values, stars }));
+    return { ...values, stars };
+  }
+
+  submit() {
+    const values = this.getValues();
+
+    this.store.dispatch(new ApplyFilters(values));
+  }
+
+  onSelectedStarsChange(event) {
+    const values = this.getValues();
+
+    this.store.dispatch(new ApplyFilters(values));
   }
 }

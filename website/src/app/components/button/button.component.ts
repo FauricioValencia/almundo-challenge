@@ -1,4 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  HostBinding,
+  ChangeDetectionStrategy
+} from '@angular/core';
 
 @Component({
   selector: 'am-button',
@@ -7,13 +13,15 @@ import { Component, OnInit, Input } from '@angular/core';
       [ngClass]="{
         'am-button': true,
         'am-button--accent': accent,
-        'am-button--large': large
+        'am-button--large': large,
+        'am-button--stretch': stretch
       }"
     >
       <ng-content></ng-content>
     </button>
   `,
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent implements OnInit {
   @Input()
@@ -21,6 +29,10 @@ export class ButtonComponent implements OnInit {
 
   @Input()
   large = false;
+
+  @Input()
+  @HostBinding('class.stretched')
+  private stretch = false;
 
   constructor() {}
 
