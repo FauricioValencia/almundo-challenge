@@ -28,7 +28,11 @@
             <span class="am-filter__header__star-icon"></span>
             <strong class="am-filter__header__title">Extrellas</strong>
           </div>
-          <am-option-group formControlName="stars" expandable-content>
+          <am-option-group
+            formControlName="stars"
+            (change)="onSelectedStarsChange($event)"
+            expandable-content
+          >
           </am-option-group>
         </am-expandable>
       </div></div

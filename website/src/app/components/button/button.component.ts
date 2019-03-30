@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  HostBinding,
+  ChangeDetectionStrategy
+} from '@angular/core';
 
 @Component({
   selector: 'am-button',
@@ -14,7 +20,8 @@ import { Component, OnInit, Input, HostBinding } from '@angular/core';
       <ng-content></ng-content>
     </button>
   `,
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent implements OnInit {
   @Input()

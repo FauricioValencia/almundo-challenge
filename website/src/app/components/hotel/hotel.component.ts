@@ -6,13 +6,17 @@ import {
   HostBinding,
   ViewChild,
   ElementRef,
-  Renderer2
+  Renderer2,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef
 } from '@angular/core';
 
+// TODO: Improve performance
 @Component({
   selector: 'am-hotel',
   templateUrl: './hotel.component.html',
-  styleUrls: ['./hotel.component.scss']
+  styleUrls: ['./hotel.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HotelComponent implements OnInit {
   @Input()
@@ -46,7 +50,8 @@ export class HotelComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private c: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -56,12 +61,14 @@ export class HotelComponent implements OnInit {
     this.breakpointObserver
       .observe(['(max-width: 1149px)', '(min-width: 1150px)'])
       .subscribe((state: BreakpointState) => {
-        if (state.breakpoints[mobile]) {
+        if (state.breakpoints[mobile] && !this.stretchGoToHotelBtn) {
           this.stretchGoToHotelBtn = true;
+          this.c.detectChanges();
         }
 
-        if (state.breakpoints[desktop]) {
+        if (state.breakpoints[desktop] && !this.stretchGoToHotelBtn) {
           this.stretchGoToHotelBtn = false;
+          this.c.detectChanges();
         }
       });
   }
