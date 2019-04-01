@@ -5,7 +5,7 @@
   <div class="am-hotel__info">
     <div class="am-hotel__description">
       <h4 class="am-hotel__description__name">{{ name }}</h4>
-      <am-rating-stars [rating]="numberOfStars" size="medium"></am-rating-stars>
+      <am-rating-stars [rating]="stars" size="medium"></am-rating-stars>
       <div class="am-hotel__amenities">
         <am-amenities [amenities]="amenities"></am-amenities>
       </div>
@@ -27,7 +27,7 @@
           class="go-to-hotel-btn"
           large="true"
           accent="true"
-          [stretch]="stretchGoToHotelBtn"
+          stretch="true"
         >
           Ver hotel
         </am-button>

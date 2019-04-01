@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  forwardRef,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 export interface Option {
@@ -14,6 +20,7 @@ let nextId = 0;
   selector: 'am-option-group',
   templateUrl: './option-group.component.html',
   styleUrls: ['./option-group.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -33,8 +40,6 @@ export class OptionGroupComponent implements OnInit, ControlValueAccessor {
   header: string;
 
   id = `am-option-group-${nextId++}`;
-
-  nextOptionId = 0;
 
   val: any;
 

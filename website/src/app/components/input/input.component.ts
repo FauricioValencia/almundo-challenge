@@ -4,7 +4,8 @@ import {
   HostBinding,
   Input,
   ViewChild,
-  forwardRef
+  forwardRef,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -20,6 +21,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     />
   `,
   styleUrls: ['./input.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -45,6 +47,8 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   input;
 
   val: any;
+
+  counter = 0;
 
   @Input('value')
   set value(val) {

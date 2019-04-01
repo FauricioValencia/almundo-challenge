@@ -32,7 +32,7 @@ export class ButtonComponent implements OnInit {
 
   @Input()
   @HostBinding('class.stretched')
-  private stretch = false;
+  stretch = false;
 
   constructor() {}
 

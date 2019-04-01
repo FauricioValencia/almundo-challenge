@@ -1,9 +1,7 @@
 @import 'src/styles/variables';
 
 :host {
-  &.stretched {
-    width: 100%;
-  }
+  width: auto;
 }
 
 .am-button {
@@ -11,6 +9,7 @@
   box-sizing: border-box;
   line-height: 20px;
   height: 36px;
+  width: 100%;
   cursor: pointer;
 
   &:focus {
@@ -36,7 +35,6 @@
   &--stretch {
     border: 0;
     padding: 16px 40px 16px 40px;
-    width: 100%;
     height: auto;
   }
 }

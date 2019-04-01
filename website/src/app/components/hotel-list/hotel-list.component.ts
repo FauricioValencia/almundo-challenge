@@ -1,7 +1,7 @@
 import { Store, select } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CoreState } from '~/app/store';
-import { SearchHotels } from '~/app/store/hotel-list/hotel-list.actions';
+import { SearchHotels } from '@store/hotel-list/hotel-list.actions';
 
 @Component({
   selector: 'am-hotel-list',
@@ -14,7 +14,7 @@ import { SearchHotels } from '~/app/store/hotel-list/hotel-list.actions';
         <am-hotel
           class="hotel"
           [name]="hotel.name"
-          [numberOfStars]="hotel.stars"
+          [stars]="hotel.stars"
           [image]="hotel.image"
           [amenities]="hotel.amenities"
           [price]="hotel.price"
@@ -23,7 +23,8 @@ import { SearchHotels } from '~/app/store/hotel-list/hotel-list.actions';
       </article>
     </section>
   `,
-  styleUrls: ['./hotel-list.component.scss']
+  styleUrls: ['./hotel-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HotelListComponent implements OnInit {
   hotels;

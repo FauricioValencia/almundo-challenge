@@ -4,7 +4,6 @@ import { CoreState } from './../../store/reducers';
 import { Store } from '@ngrx/store';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'am-filters',
@@ -52,8 +51,7 @@ export class FiltersComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private store: Store<CoreState>,
-    private breakpointObserver: BreakpointObserver
+    private store: Store<CoreState>
   ) {
     this.filtersForm = formBuilder.group({
       name: [undefined],
@@ -62,20 +60,13 @@ export class FiltersComponent implements OnInit {
   }
 
   ngOnInit() {
-    const mobile = '(max-width: 1149px)';
-    const desktop = '(min-width: 1150px)';
-
-    this.breakpointObserver
-      .observe(['(max-width: 1149px)', '(min-width: 1150px)'])
-      .subscribe((state: BreakpointState) => {
-        if (state.breakpoints[mobile]) {
-          this.expandableForm.collapse();
-        }
-
-        if (state.breakpoints[desktop]) {
-          this.expandableForm.expand();
-        }
-      });
+    this.store
+      .select(s => s.screen.mode)
+      .subscribe(mode =>
+        mode === 'desktop'
+          ? this.expandableForm.expand()
+          : this.expandableForm.collapse()
+      );
   }
 
   getValues() {
