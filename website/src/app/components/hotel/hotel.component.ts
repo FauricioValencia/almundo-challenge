@@ -1,14 +1,9 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { Store } from '@ngrx/store';
 import {
   Component,
   OnInit,
   Input,
-  HostBinding,
-  ViewChild,
-  ElementRef,
-  Renderer2,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef
+  ChangeDetectionStrategy
 } from '@angular/core';
 
 // TODO: Improve performance
@@ -23,7 +18,7 @@ export class HotelComponent implements OnInit {
   name: string;
 
   @Input()
-  numberOfStars: number;
+  stars: number;
 
   @Input()
   amenities: string[];
@@ -38,38 +33,7 @@ export class HotelComponent implements OnInit {
     this._image = `/assets/images/hotels/${src}`;
   }
 
-  @HostBinding('class')
-  class = 'card';
+  constructor() {}
 
-  @ViewChild('goToHotelBtn')
-  goToHotelButton: ElementRef;
-
-  stretchGoToHotelBtn = false;
-
-  Arr = Array;
-
-  constructor(
-    private breakpointObserver: BreakpointObserver,
-    private renderer: Renderer2,
-    private c: ChangeDetectorRef
-  ) {}
-
-  ngOnInit() {
-    const mobile = '(max-width: 1149px)';
-    const desktop = '(min-width: 1150px)';
-
-    this.breakpointObserver
-      .observe(['(max-width: 1149px)', '(min-width: 1150px)'])
-      .subscribe((state: BreakpointState) => {
-        if (state.breakpoints[mobile] && !this.stretchGoToHotelBtn) {
-          this.stretchGoToHotelBtn = true;
-          this.c.detectChanges();
-        }
-
-        if (state.breakpoints[desktop] && !this.stretchGoToHotelBtn) {
-          this.stretchGoToHotelBtn = false;
-          this.c.detectChanges();
-        }
-      });
-  }
+  ngOnInit() {}
 }

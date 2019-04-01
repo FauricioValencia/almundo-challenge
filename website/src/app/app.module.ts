@@ -15,7 +15,6 @@ import { RatingStarsComponent } from './components/rating-stars/rating-stars.com
 import { ExpandableComponent } from './components/expandable/expandable.component';
 import { ButtonComponent } from './components/button/button.component';
 import { InputComponent } from './components/input/input.component';
-import { StoreModule } from '@ngrx/store';
 import { HotelListComponent } from './components/hotel-list/hotel-list.component';
 import { HotelComponent } from './components/hotel/hotel.component';
 import { ExpansionTriggerDirective } from './components/expansion-trigger/expansion-trigger.directive';

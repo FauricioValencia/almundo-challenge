@@ -1,5 +1,6 @@
 import { ActionReducerMap, Store } from '@ngrx/store';
 
+import { ScreenActions, ScreenState, screenReducer } from './screen';
 import { FiltersActions, FiltersState, filtersReducer } from './filters';
 import {
   HotelListActions,
@@ -12,12 +13,18 @@ import {
 export interface CoreState {
   hotelList: HotelListState;
   filters: FiltersState;
+  screen: ScreenState;
   // router: RouterReducerState;
 }
 
 export const CoreReducers: ActionReducerMap<CoreState> = {
   hotelList: hotelListReducer,
-  filters: filtersReducer
+  filters: filtersReducer,
+  screen: screenReducer
 };
 
-export const CoreActionTypes = [FiltersActions.Types, HotelListActions.Types];
+export const CoreActionTypes = [
+  FiltersActions.Types,
+  HotelListActions.Types,
+  ScreenActions.Types
+];
