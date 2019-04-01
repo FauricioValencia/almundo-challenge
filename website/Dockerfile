@@ -10,8 +10,6 @@ RUN npm install
 
 COPY . .
 
-RUN npm rebuild node-sass --force
-
 EXPOSE 4200
 
 CMD ["npm", "run", "start"]
